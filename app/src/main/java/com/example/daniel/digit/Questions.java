@@ -1,6 +1,7 @@
 package com.example.daniel.digit;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -29,10 +30,13 @@ import org.json.JSONObject;
 public class Questions extends AppCompatActivity {
 
     private Spinner spinnerCost; //spinnerCost variable
-    private static final String[] paths = {"Select Price Level", "$", "$$", "$$$", "$$$$"}; //cost declaration
+    private static final String[] paths = {"Select Price Level", "$", "$$", "$$$", "$$$$"}; //cost spinner declaration
 
     private Spinner spinnerType; //spinnerType variable
-    private static final String[] paths2 = {"Select Type", "item 1", "item 2", "item 3"}; //type declaration
+    private static final String[] paths2 = {"Select Type", "item 1", "item 2", "item 3"}; //type spinner declaration
+
+    private String txtCost;
+    private String txtType;
 
     private TextView address; //txtViewAddress XML element variable
     private String url; //Zip code translated to string for URL
@@ -63,6 +67,7 @@ public class Questions extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = spinnerCost.getSelectedItem().toString();
                 if (!text.contains("Select")) {
+                    String txtCost = spinnerCost.getSelectedItem().toString();
                 }
             }
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -75,6 +80,7 @@ public class Questions extends AppCompatActivity {
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = spinnerType.getSelectedItem().toString();
                 if (!text.contains("Select")) {
+                    String txtType = spinnerCost.getSelectedItem().toString();
                 }
             }
             public void onNothingSelected(AdapterView<?> adapterView) {
@@ -104,8 +110,6 @@ public class Questions extends AppCompatActivity {
 
     //Searches for zip code on button press
     public void Search (View v) {
-
-        //url = address.getText().toString(); //converts TextView to a String
 
         //RequestQueue Variable
         RequestQueue mRequestQueue;
@@ -143,8 +147,10 @@ public class Questions extends AppCompatActivity {
                         showAlert("FUCK."); //Error code display
             }
         });
-
         mRequestQueue.add(addressRequest); //Add request to ResponseQueue
+
+        Intent intentResults = new Intent(this, Results.class); //intent for results.xml
+        startActivity(intentResults);
     }
 
     //Parsing function

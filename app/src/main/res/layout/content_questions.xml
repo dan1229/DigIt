@@ -60,11 +60,11 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/btnQuestions"
-        android:onClick="Search"
         android:id="@+id/btnSearch"
         android:layout_marginBottom="92dp"
         android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:onClick="Search" />
 
     <EditText
         android:textCursorDrawable="@color/txtViewFont"
@@ -78,9 +78,10 @@
         android:layout_alignRight="@+id/spinnerQuestion2"
         android:layout_alignEnd="@+id/spinnerQuestion2"
         android:layout_alignParentEnd="true"
+        android:layout_alignParentRight="true"
         android:backgroundTint="@color/txtViewBackground"
         android:elegantTextHeight="true"
-        android:hint="Zip Code, City, etc."
+        android:hint="@string/txtViewLocation"
         android:inputType="number|textAutoComplete|textPostalAddress"
         android:nestedScrollingEnabled="false"
         android:textColor="@color/txtViewFont"

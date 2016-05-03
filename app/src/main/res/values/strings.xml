@@ -6,4 +6,6 @@
     <string name="question1">Cost</string>
     <string name="question2">Type</string>
     <string name="btnQuestions">Search</string>
+    <string name="title_activity_results">Results</string>
+    <string name="txtViewLocation">Please Enter Zip Code or City</string>
 </resources>
