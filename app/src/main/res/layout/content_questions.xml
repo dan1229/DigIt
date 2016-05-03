@@ -1,0 +1,88 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:background="@color/colorPrimaryMain"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="com.example.daniel.digit.Questions"
+    tools:showIn="@layout/activity_questions">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/question1"
+        android:id="@+id/questionText1"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/txtQuestionsHeadingsFont" />
+
+    <Spinner
+        android:id="@+id/spinnerQuestion1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/questionText1"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:nestedScrollingEnabled="false" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="@string/question2"
+        android:id="@+id/questionText2"
+        android:layout_below="@+id/spinnerQuestion1"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:textColor="@color/txtQuestionsHeadingsFont" />
+
+    <Spinner
+        android:id="@+id/spinnerQuestion2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@android:drawable/btn_dropdown"
+        android:spinnerMode="dropdown"
+        android:layout_below="@+id/questionText2"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/btnQuestions"
+        android:onClick="Search"
+        android:id="@+id/btnSearch"
+        android:layout_marginBottom="92dp"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true" />
+
+    <EditText
+        android:textCursorDrawable="@color/txtViewFont"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/txtViewAddress"
+        android:layout_below="@+id/spinnerQuestion2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="49dp"
+        android:layout_alignRight="@+id/spinnerQuestion2"
+        android:layout_alignEnd="@+id/spinnerQuestion2"
+        android:layout_alignParentEnd="true"
+        android:backgroundTint="@color/txtViewBackground"
+        android:elegantTextHeight="true"
+        android:hint="Zip Code, City, etc."
+        android:inputType="number|textAutoComplete|textPostalAddress"
+        android:nestedScrollingEnabled="false"
+        android:textColor="@color/txtViewFont"
+        android:textColorHint="@color/txtViewHintColor" />
+</RelativeLayout>
