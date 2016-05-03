@@ -91,7 +91,7 @@ public class Questions extends AppCompatActivity {
         //Assigns enter key to Search function
         address = (TextView) findViewById(R.id.txtViewAddress); //Assigns TextView to variable address
         address.setOnKeyListener(new View.OnKeyListener() { //Creates onKeyListener for txtViewAddress
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
+            public boolean onKey(View v, int keyCode, KeyEvent event) { //Sets on key listener
                 if (event.getAction() == KeyEvent.ACTION_DOWN) {
                     switch (keyCode) {
                         case KeyEvent.KEYCODE_DPAD_CENTER:
@@ -105,11 +105,12 @@ public class Questions extends AppCompatActivity {
                 return false;
             }
         });
-
     }
 
     //Searches for zip code on button press
     public void Search (View v) {
+
+        //url = address.getText().toString(); //converts TextView to a String
 
         //RequestQueue Variable
         RequestQueue mRequestQueue;
@@ -139,7 +140,6 @@ public class Questions extends AppCompatActivity {
                         if(lng.length() < 1||lat.length()<1) {
                             showAlert("Please Enter A Valid Zip Code");
                         }
-                        showAlert("Latitude is: " + lat + "\n" + "Longitude is: " + lng);
                     }
                 }, new Response.ErrorListener() {
                     @Override
@@ -154,23 +154,19 @@ public class Questions extends AppCompatActivity {
     }
 
     //Parsing function
-    public String parseLocation(String res)
-    {
+    public String parseLocation(String res) {
         try {
-            JSONObject reader = new JSONObject(res);
-            JSONArray arr = reader.getJSONArray("results");
+            JSONObject reader = new JSONObject(res); //creates reader
+            JSONArray arr = reader.getJSONArray("results"); //creates results JSONObject
             JSONObject results = arr.getJSONObject(0);
             JSONObject geometry = results.getJSONObject("geometry");
             JSONObject loc = geometry.getJSONObject("location");
-            String lat = loc.getString("lat");
-            String lng = loc.getString("lng");
-
-            return lat+","+lng;
-        } catch (JSONException e) {
+            String lat = loc.getString("lat"); //saves lat
+            String lng = loc.getString("lng"); //saves lng
+            return lat+","+lng; //return lat and lng
+        } catch (JSONException e) { //JSONexception catcher
             return "Please enter a valid address";
-
         }
-
     }
 
     //Alert test function
