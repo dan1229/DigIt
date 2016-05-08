@@ -50,14 +50,14 @@ public class Questions extends AppCompatActivity {
 
         //spinner cost populate
         spinnerCost = (Spinner) findViewById(R.id.spinnerQuestion1);
-        ArrayAdapter<String> adapterCost = new ArrayAdapter<String>(Questions.this,
+        ArrayAdapter<String> adapterCost = new ArrayAdapter<>(Questions.this,
                 android.R.layout.simple_spinner_item, paths);
         adapterCost.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerCost.setAdapter(adapterCost);
 
         //spinner type populate
         spinnerType = (Spinner) findViewById(R.id.spinnerQuestion2);
-        ArrayAdapter<String> adapterType = new ArrayAdapter<String>(Questions.this,
+        ArrayAdapter<String> adapterType = new ArrayAdapter<>(Questions.this,
                 android.R.layout.simple_spinner_item, paths2);
         adapterType.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerType.setAdapter(adapterType);
@@ -110,7 +110,8 @@ public class Questions extends AppCompatActivity {
     //Searches for zip code on button press
     public void Search (View v) {
 
-        //url = address.getText().toString(); //converts TextView to a String
+        //Converts TextView to a string
+        //url = address.getText().toString();
 
         //RequestQueue Variable
         RequestQueue mRequestQueue;
